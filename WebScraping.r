@@ -69,7 +69,7 @@ library(internetarchive)
 
 # Define your query URL
 #locgov_url_search <- ("http://www.loc.gov/collections/chronicling-america/?location_state=southcarolina&qs=Nullification&end_data=1945-12-31&fo=json")
-locgov_url_search <- ("https://chroniclingamerica.loc.gov/search/pages/results/?state=SouthCarolina&dateFilterType=yearRange&date1=1796&date2=1912&sort=date&andtext=nullification&format=json")
+locgov_url_search <- ("https://chroniclingamerica.loc.gov/search/pages/results/?state=southcarolina&dateFilterType=yearRange&date1=1796&date2=1912&sort=date&andtext=trade&format=json")
 
 # Run the query using the API
 api_query <- GET(locgov_url_search)
