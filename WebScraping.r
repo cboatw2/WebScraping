@@ -69,7 +69,10 @@ library(internetarchive)
 
 # Define your query URL
 #locgov_url_search <- ("http://www.loc.gov/collections/chronicling-america/?location_state=southcarolina&qs=Nullification&end_data=1945-12-31&fo=json")
-locgov_url_search <- ("https://chroniclingamerica.loc.gov/search/pages/results/?state=southcarolina&dateFilterType=yearRange&date1=1796&date2=1912&sort=date&andtext=trade&format=json")
+#locgov_url_search <- ("https://chroniclingamerica.loc.gov/search/pages/results/?state=southcarolina&dateFilterType=yearRange&date1=1796&date2=1912&sort=date&andtext=trade&format=json")
+
+#Using exact example from https://studentwork.prattsi.org/dh/2019/05/13/getting-data-for-digital-humanities-with-apis/:
+locgov_rul_search <- ("https://chroniclingamerica.loc.gov/search/pages/results/?state=Alaska&dateFilterType=yearRange&date1=1912&date2=1916&sort=date&andtext=suffrage&format=json")
 
 # Run the query using the API
 api_query <- GET(locgov_url_search)
