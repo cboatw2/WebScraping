@@ -68,7 +68,8 @@ library(internetarchive)
 
 
 # Define your query URL
-locgov_url_search <- ("http://www.loc.gov/collections/chronicling-america/?location_state=southcarolina&qs=Nullification&end_data=1945-12-31&fo=json")
+#locgov_url_search <- ("http://www.loc.gov/collections/chronicling-america/?location_state=southcarolina&qs=Nullification&end_data=1945-12-31&fo=json")
+locgov_url_search <- ("https://chroniclingamerica.loc.gov/search/pages/results/?state=SouthCarolina&dateFilterType=yearRange&date1=1796&date2=1912&sort=date&andtext=nullification&format=json")
 
 # Run the query using the API
 api_query <- GET(locgov_url_search)
@@ -77,7 +78,7 @@ api_query <- GET(locgov_url_search)
 if (status_code(api_query) == 200) {
 
 # Tell R to read the results as JSON
-search_result <- fromJSON(content(api_query, as = "text"))
+search_result <- fromJSON(content(api_query, as = "text", encoding = "UTF-8"))
  print(search_result)
 } else {
   print("Request failed. Try again!")
