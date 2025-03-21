@@ -1,0 +1,3 @@
+import requests #import the library that we use to make the http request
+r = requests.get("http://chroniclingamerica.loc.gov/search/pages/results/?state=Arizona&format=json").json()
+r['itemsPerPage'] #print out the number of items per page:
