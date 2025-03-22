@@ -29,10 +29,18 @@ if (status_code(api_query) == 200) {
   total_results <- search_result$totalItems
   print(paste("Total number of results:", total_results))
 
+  # Look at first record of results
+  first_result <- search_result$results[[1]]
+  print(first_result)
+
+  #Convert results to a dataframe
+  if (total_results > 0) {
+    sc_commerce_df <- as.data.frame (search_result$items)
+    print(sc_commerce_df)
+  } else {
+    print ("No results. Unable to print dataframe.")
+  }
+
 } else {
   print("Request failed. Try again!")
 }
-
-# Look at first record of results
-#first_result <- search_result$results[[1]]
-#print(first_result)
