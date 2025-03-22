@@ -40,7 +40,14 @@ if (status_code(api_query) == 200) {
 
     #Display sc_commerce_df in another window as a table
     View(sc_commerce_df)
-    
+
+     #Create a seperate text file for each record in the ocr_eng column
+    for (i in 1:nrow(sc_commerce_df)) {
+      county <- sc_commerce_df$county[i]
+      file_name <- paste0(country, "_", "record_", i, ".txt")
+      writeLines(sc_commerce_df$ocr_eng[i], file_name)
+    }
+
   } else {
     print ("No results. Unable to print dataframe.")
   }
