@@ -21,8 +21,8 @@ if (!dir.exists(output_dir_pagination)) {
 
 # Initialize variables
 page <- 1
-total_results <- 0
-total_files_saved <- 0
+total_results_pagination <- 0
+total_files_saved_pagination <- 0
 
 repeat {
   # Construct the query URL for the current page
@@ -50,12 +50,12 @@ repeat {
       # Write each record in the ocr_eng column to a separate text file in the new directory
       for (i in 1:nrow(sc_commerce_df_pagination)) {
         county <- sc_commerce_df_pagination$county[i]
-        file_name_pagination <- paste0(output_dir_pagination, "/", county, "_", "record_", total_files_saved + i, ".txt")
+        file_name_pagination <- paste0(output_dir_pagination, "/", county, "_", "record_", total_files_saved_pagination + i, ".txt")
         writeLines(sc_commerce_df_pagination$ocr_eng[i], file_name_pagination)
       }
       
       # Update the total number of files saved
-      total_files_saved <- total_files_saved + nrow(sc_commerce_df_pagination)
+      total_files_saved_pagination <- total_files_saved_pagination + nrow(sc_commerce_df_pagination)
       
     } else {
       break
@@ -70,11 +70,11 @@ repeat {
   page <- page + 1
   
   # Break the loop if all results have been processed
-  if (total_files_saved >= total_results) {
+  if (total_files_saved_pagination >= total_results_pagination) {
     break
   }
 }
 
 # Confirm txt file creation by counting the number of text files in the directory
-num_files <- length(list.files(output_dir_pagination, pattern = "\\.txt$"))
-print(paste("Number of text files saved:", num_files))
+num_files_pagination <- length(list.files(output_dir_pagination, pattern = "\\.txt$"))
+print(paste("Number of text files saved:", num_files_pagination))
