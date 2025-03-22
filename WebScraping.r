@@ -46,12 +46,13 @@ if (status_code(api_query) == 200) {
       dir.create(output_dir)
     }
 
-     #Create a seperate text file for each record in the ocr_eng column
+     #Create a seperate text file for each record in the ocr_eng column and save it into the SC_Commerce_1836to1860_OCR_Files directory
     for (i in 1:nrow(sc_commerce_df)) {
       county <- sc_commerce_df$county[i]
-      file_name <- paste0(county, "_", "record_", i, ".txt")
+      file_name <- paste0(output_dir, "/", county, "_", "record_", i, ".txt")
       writeLines(sc_commerce_df$ocr_eng[i], file_name)
     }
+
 
   } else {
     print ("No results. Unable to print dataframe.")
