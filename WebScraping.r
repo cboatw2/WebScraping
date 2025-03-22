@@ -11,9 +11,9 @@ library(conflicted)
 install.packages("internetarchive", repos = c("https://ropensci.r-universe.dev", "https://cloud.r-project.org"))
 library(internetarchive)
 
-# Define your query URL
+# Define your query URL: search from the first year SC newspapers are available to the last year before the Civil War for the term "nullification"
 
-locgov_url_search <- ("https://chroniclingamerica.loc.gov/search/pages/results/?state=SouthCarolina&dateFilterType=yearRange&date1=1830&date2=1831&sort=date&andtext='cotton'&format=json")
+locgov_url_search <- ("https://chroniclingamerica.loc.gov/search/pages/results/?state=South+Carolina&dateFilterType=yearRange&date1=1836&date2=1860&sort=date&andtext=nullification&format=json")
 
 # Run the query using the API
 api_query <- GET(locgov_url_search)
