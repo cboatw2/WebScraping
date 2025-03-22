@@ -44,7 +44,7 @@ if (status_code(api_query) == 200) {
      #Create a seperate text file for each record in the ocr_eng column
     for (i in 1:nrow(sc_commerce_df)) {
       county <- sc_commerce_df$county[i]
-      file_name <- paste0(country, "_", "record_", i, ".txt")
+      file_name <- paste0(county, "_", "record_", i, ".txt")
       writeLines(sc_commerce_df$ocr_eng[i], file_name)
     }
 
