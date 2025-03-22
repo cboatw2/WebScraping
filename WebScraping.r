@@ -53,6 +53,9 @@ if (status_code(api_query) == 200) {
       writeLines(sc_commerce_df$ocr_eng[i], file_name)
     }
 
+# Confirm txt file creation by counting the number of text files in the directory
+    num_files <- length(list.files(output_dir, pattern = "\\.txt$"))
+    print(paste("Number of text files saved:", num_files))
 
   } else {
     print ("No results. Unable to print dataframe.")
