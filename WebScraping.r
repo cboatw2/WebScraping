@@ -41,6 +41,11 @@ if (status_code(api_query) == 200) {
     #Display sc_commerce_df in another window as a table
     View(sc_commerce_df)
 
+     output_dir <- "SC_Commerce_1836to1860_OCR_Files"
+    if (!dir.exists(output_dir)) {
+      dir.create(output_dir)
+    }
+
      #Create a seperate text file for each record in the ocr_eng column
     for (i in 1:nrow(sc_commerce_df)) {
       county <- sc_commerce_df$county[i]
