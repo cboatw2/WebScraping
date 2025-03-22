@@ -37,6 +37,10 @@ if (status_code(api_query) == 200) {
   if (total_results > 0) {
     sc_commerce_df <- as.data.frame (search_result$items)
     print(sc_commerce_df)
+
+    #Display sc_commerce_df in another window as a table
+    View(sc_commerce_df)
+    
   } else {
     print ("No results. Unable to print dataframe.")
   }
